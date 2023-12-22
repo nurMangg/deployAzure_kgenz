@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Deteksi</title>
+
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.svg')}}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}"> -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+
+    }
+
+    .size-beranda {
+        font-size: larger;
+        font-family: poppins;
+        color: #11009E;
+        font-weight: bold;
+    }
+
+    .layanan-unggulan-camera {
+        margin-top: -250px;
+        height: 60%;
+        background-color: #11009E;
+        color: white;
+    }
+
+    .box {
+        border-radius: 10px;
+        background-color: #e3e3e3;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .box-header {
+        border-radius: 10px;
+        background-color: #11009e;
+        align-self: stretch;
+        display: flex;
+        /* margin-bottom: -88px; */
+        flex-direction: column;
+        padding: 17px 80px;
+    }
+
+    .text-head {
+        color: #fff;
+        text-align: center;
+        align-self: center;
+        max-width: 361px;
+        font: 700 20px Inter, sans-serif;
+    }
+
+    .box-camera {
+        padding: 10px;
+    }
+
+    .video-webcam {
+
+        width: 600px;
+        height: 200px;
+        border: 1px solid #000;
+        overflow: hidden;
+        /* Menghindari tampilan yang melebihi kotak */
+    }
+
+
+    .image-logo {
+        position: absolute;
+        top: 150px;
+        right: 500px;
+        width: 100px;
+        height: 100px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .image-logo {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+            <div class="container-fluid ms-5">
+                <img class="navbar-brand" src="{{ url_for('static', filename='img/logo.png')}}" width="300px"
+                    height="75px" alt="">
+
+            </div>
+        </nav>
+    </div>
+
+    <div class="image-logo">
+        <img src="{{ url_for('static', filename='/img/camera.png')}}" alt="Logo-Kamera">
+    </div>
+
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text">
+                    <div class="box p-3">
+                        <h1 class="text-center" style="font-family: poppins; font-weight: bold; font-size: x-large;">
+                            Hasil Tingkat Stress Anda :</h1>
+                        <img src="{{ url_for('static', filename='/uploads/' + sh_img )}}" class="p-3 text-center"
+                            style="text-align: center; align-items: center;" width="400px" height="400px">
+                        {% if predict %}
+                        <p class="text-dark text-center font-weight-bold">Anda Mengalami Tingkat Stress : {{predict}}
+                        </p>
+                        {% else %}
+                        <p class=" text-dark font-weight-bold">{{err}}</p>
+                        {% endif %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+                            Lihat Lebih Lanjut
+                        </button>
+                    </div>
+                    <div class="row g-2 mt-3">
+                        <div class="col-md-6">
+                            <a href="{{ url_for('camera') }}" class="w-50">
+                                <div class="btn btn-primary me-2 w-100">Kembali</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ url_for('layanan') }}" class="w-50">
+                                <div class="btn btn-primary me-2 w-100">Layanan</div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Informasi Tingkat Stress</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Tingkatan Stress</h3>
+                    <ol>
+                        {% for i in range(0, 4) %}
+                        
+                        <li>{{data[i]["tingkat"]}}
+                            <p>{{data[i]["deskripsi"]}}</p>
+                            <p><span style="font-weight: bold;">Gejala :</span>{{data[i]["gejala"]}}</p>
+                            <p><span style="font-weight: bold;">Solusi :</span>{{data[i]["cara_atasi"]}}</p>
+                        </li>
+                        {% endfor %}
+                        
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="{{ url_for('artikel')}}"><button type="button" class="btn btn-primary">Lebih Lanjut</button></a>
+                    <a href="{{ url_for('chatbot')}}"><button type="button" class="btn btn-primary">Berinteraksi Dengan Chatbot</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layanan-unggulan-camera">
+        <div class="container">
+
+        </div>
+    </div>
+
+
+
+
+    <!-- <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
+</body>
+
+</html>

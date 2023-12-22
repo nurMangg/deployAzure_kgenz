@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {% block icons %}{% endblock icons %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssLocal/zoom-anim.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<style>
+    html,
+    body {
+
+        font-family: 'poppins';
+        overflow: auto;
+    }
+
+    .nav-link {
+        font-size: 50px;
+    }
+
+
+    /* LOGIN PAGE */
+    .containerLogin {
+        margin-top: 200px;
+        height: 97%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+
+    .display-tengah {
+        display: block;
+        margin: auto;
+    }
+
+    .size-beranda {
+        font-size: larger;
+        font-family: poppins;
+        color: #11009E;
+        font-weight: bold;
+    }
+
+    .row {
+        padding-top: 3%;
+    }
+
+    .image-layanan {
+        width: 60%;
+        height: 60%;
+    }
+
+
+    .text {
+        /* display: flex; */
+        align-items: center;
+        margin: auto;
+        top: 50%;
+        display: table-cell;
+        /* justify-content: center; */
+        /* text-align: center; */
+    }
+
+    .row-layanan {
+        padding-top: 1%;
+    }
+
+    .text-paragraph {
+        font-family: poppins;
+        color: #11009E;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .layanan-unggulan {
+        /* margin-top: 15px; */
+        padding-bottom: 40px;
+        /* height: 50%; */
+        background-color: #11009E;
+        color: white;
+    }
+
+    .layanan-unggulan-camera {
+        margin-top: -250px;
+        height: 60%;
+        background-color: #11009E;
+        color: white;
+    }
+
+    .image-logo {
+        position: absolute;
+        top: 150px;
+        right: 500px;
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Teksketik */
+    #typewriter-text {
+        border-right: 1px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 12em;
+        animation: typing 2s steps(20, end), blink-caret 0.5s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 12em
+        }
+    }
+
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: black
+        }
+    }
+
+    .mx-auto {
+        margin-top: 250px;
+    }
+
+    
+
+
+
+    @media screen and (max-width: 768px) {
+        .containerLogin {
+            margin-top: 0px;
+        }
+
+        .img {
+            width: 250px;
+            height: 100px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .mx-auto {
+            margin-top: 0px;
+        }
+
+
+    }
+</style>
+
+<body>
+    {% block navbar %}
+    {% endblock %}
+
+    {% block content1 %}
+    {% endblock %}
+
+    {% block content2 %}
+    {% endblock %}
+
+
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

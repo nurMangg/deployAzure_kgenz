@@ -1,0 +1,55 @@
+{% extends "user/layouts/main.html" %}
+
+{% block title %}
+    {{title}}
+
+{% endblock title %}
+
+{% block icons %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.svg')}}" type="image/x-icon">
+{% endblock icons %}
+
+
+{% include "user/layouts/navbar.html" %}
+
+{% block content1 %}
+<body>
+<canvas id="myChart"></canvas>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<script>
+
+
+    var xValues = ["Tingkat 0", "Tingkat 1", "Tingkat 2", "Tingkat 3"];
+    var yValues = {{ hist }};
+    console.log(yValues)
+
+    var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+    ];
+    
+    new Chart("myChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Histori Tingkat Kestresan Kamu"
+        }
+      }
+    });
+    </script>
+</body>
+{% endblock content1 %}

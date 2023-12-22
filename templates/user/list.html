@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Kamu Menggunakan Session User ID : {{ ses }}</h1>
+        <div class="form mt-3">
+            <table class="table ">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td scope="row">{{user.id}}</td>
+                    <td>{{user.fullname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        
+    </div>
+    <div class="container">
+        <div class="form mt-3">
+            <table class="table">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Result</th>
+                    <th scope="col">date</th>
+                    <th scope="col">user_id</th>
+                </tr>
+                {% for history in hist %}
+                <tr>
+                    <td scope="row">{{history.id}}</td>
+                    <td>{{history.result}}</td>
+                    <td>{{history.date}}</td>
+                    <td>{{history.user_id}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+</body>
+</html>

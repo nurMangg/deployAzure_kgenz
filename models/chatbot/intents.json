@@ -1,0 +1,210 @@
+{
+   "intents": [{
+         "tag": "ucapan",
+         "patterns": [
+            "Hai",
+            "Apa kabar?",
+            "Is anyone there?",
+            "Halo",
+            "Halo?",
+            "Ada Apa?",
+            "Apa Kabar mu?",
+            "heyy",
+            "Apa?",
+            "??? ??? ??"
+         ],
+         "responses": [
+            "Hallo!",
+            "Senang bertemu denganmu",
+            "Saya disini, ada yang bisa dibantu?"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "selamat_tinggal",
+         "patterns": [
+            "cya",
+            "See you",
+            "bye bye",
+            "Senang ketemu kembali",
+            "Goodbye",
+            "Saya pergi",
+            "Bye",
+            "Semoga hari indah",
+            "Bicara denganmu nanti",
+            "ttyl",
+            "Saya akan pergi",
+            "gtg"
+         ],
+         "responses": [
+            "Sedih melihat kamu pergi :(",
+            "Bicara denganmu nanti",
+            "Goodbye!",
+            "Datang kembali nanti"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "pembuat",
+         "patterns": [
+            "apa nama pengembang anda?",
+            "apa nama kreator anda?",
+            "siapa nama pengembangnya",
+            "siapa nama kreatornya",
+            "siapa kreator kamu",
+            "siapa developer kamu",
+            "siapa kreatornya",
+            "siapa pengembangnya",
+            "developers",
+            "kamu dibuat oleh",
+            "kamu dibuat oleh siapa",
+            "siapa yang membuat kamu",
+            "siapa yang membuat",
+            "kreator",
+            "siapa membuat kamu",
+            "siapa yang desain kamu"
+         ],
+         "responses": [
+            "K-GenZ Official"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "name",
+         "patterns": [
+            "nama",
+            "nama kamu",
+            "apa kamu punya nama",
+            "apa nama panggilan kamu",
+            "siapa namamu",
+            "siapa panggilanmu",
+            "siapa namamu",
+            "siapa panggilanmu",
+            "siapa kamu",
+            "siapa ini",
+            "dengan siapa saya berbicara",
+            "siapa yang berbicara dengan saya",
+            "siapa"
+         ],
+         "responses": [
+            "kamu dapat memanggil saya K-GenZ",
+            "Saya K-GenZ",
+            "Saya seorang chatbot",
+            "Saya yang membantu kamu"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "sapaan",
+         "patterns": [
+            "okk",
+            "okie",
+            "kerja bagus",
+            "okee",
+            "good job",
+            "thanks",
+            "Thank you",
+            "its ok",
+            "terimakasih",
+            "terima kasih",
+            "terimakasih telah membantu",
+            "siapp",
+            "okay"
+         ],
+         "responses": [
+            "Saya senang saya membantu membantu anda",
+            "Terimakasih",
+            "Ada lagi yang bisa saya bantu?"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tanya",
+         "patterns": [
+            "apa yang bisa kamu lakukan",
+            "hal apa yang dapat kamu lakukan",
+            "yang dapat kamu lakukan",
+            "apa yang bisa kamu bantu untuk aku",
+            "bisakah anda membantu saya"
+         ],
+         "responses": [
+            "Saya dapat menjawab pertanyaan tingkat stress anda",
+            "kamu dapat bertanya tentang tingkatan stress"
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "atasi_stress_2",
+         "patterns": [
+            "bagaimana cara menghilangkan stress?",
+            "Apa strategi yang efektif untuk meredakan stres dan menciptakan perasaan lebih tenang?"
+         ],
+         "responses": [
+            "Stres bekerja seperti pekerjaan rumah. Anda tidak melakukannya setiap hari, dan pada akhirnya, itu akan menjadi kekacauan besar. Demikian pula jika Anda membiarkan masalah Anda menumpuk; Anda akan merasa semakin stres. Jadi solusi terbaik adalah mengatasi masalah Anda satu per satu. Jangan biarkan hal itu membuat Anda kewalahan."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "sputar_stress",
+         "patterns": [
+            "Bagaimana Anda dapat membantu saya mengatasi stres dan kecemasan?",
+            "apa saja gejala yang disebabkan oleh stres?",
+            "Gejala Stress"
+         ],
+         "responses": [
+            "Saya dapat memberikan saran dan teknik manajemen stres, memberikan informasi tentang latihan relaksasi, serta mendukung Anda dalam menemukan strategi koping yang sesuai dengan situasi Anda.Gejala stres dapat mencakup ketegangan otot, gangguan tidur, perubahan nafsu makan, peningkatan denyut jantung, kesulitan berkonsentrasi, dan perubahan mood seperti kecemasan atau iritabilitas."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tingkat_stress_0",
+         "patterns": [
+            "apa yang di maksud dengan tingkat stres sangat rendah?"
+         ],
+         "responses": [
+            "Pada tingkat stres yang rendah.Emosi yang dominan adalah kebahagiaan (happy) .umumnya dianggap positif untuk kesejahteraan mental dan fisik."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tingkat_stress_1",
+         "patterns": [
+            "apa yang di maksud dengan tingkat stres rendah?"
+         ],
+         "responses": [
+            "Pada tingkat stres yang rendah, seseorang biasanya merasa nyaman, rileks, atau netral dalam situasi tertentu.Emosi yang dominan adalah kebahagiaan (happy) dan ketenangan (neutral). Individu pada tingkat stres rendah cenderung memiliki kemampuan berpikir jernih, konsentrasi yang tinggi, dan merasa tenang."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tingkat_stress_2",
+         "patterns": [
+            "apa yang dimaksud dengan tingkat stres sedang?"
+         ],
+         "responses": [
+            "Pada tingkat stres yang moderat, seseorang mungkin mengalami perasaan marah (angry) atau sedih (sad) yang lebih kuat. Stres sedang dapat memunculkan reaksi emosional yang lebih intens, tetapi belum mencapai tingkat stres yang tinggi. Kemampuan konsentrasi mungkin sedikit terganggu, dan individu mungkin merasa agak tertekan atau gelisah."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tingkat_stress_3",
+         "patterns": [
+            "apa yang dimaksud dengan tingkat stres tinggi?"
+         ],
+         "responses": [
+            "Pada tingkat stres yang tinggi, individu mungkin mengalami emosi seperti jijik (disgust) atau rasa takut (fear) yang kuat. Stres tinggi dapat menyebabkan reaksi emosional yang sangat kuat dan bisa mengganggu kemampuan berpikir secara rasional.Seseorang pada tingkat stres tinggi mungkin merasa tegang, cemas, dan bahkan mengalami gangguan fisik seperti sakit kepala, gangguan tidur, dan gangguan pencernaan."
+         ],
+         "context_set": ""
+      },
+      {
+         "tag": "tingkat_stress",
+         "patterns": [
+            "apakah stress menyebabkan masalah kesehatan?"
+         ],
+         "responses": [
+            "Stres yang terus-menerus diketahui menyebabkan banyak masalah medis. Ini termasuk sakit kepala terus menerus yang mungkin semakin parah. Masalah lainnya termasuk insomnia, nyeri dada, dan detak jantung cepat. Selain itu, orang yang mengalami stres secara rutin lebih mungkin menderita masalah yang berhubungan dengan jantung."
+         ],
+         "context_set": ""
+      }
+   ]
+}

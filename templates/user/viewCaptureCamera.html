@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.svg')}}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .size-beranda {
+        font-size: larger;
+        font-family: poppins;
+        color: #11009E;
+        font-weight: bold;
+    }
+
+    .layanan-unggulan-camera {
+        margin-top: -350px;
+        height: 60%;
+        background-color: #11009E;
+        color: white;
+    }
+
+    .box {
+        border-radius: 10px;
+        background-color: #e3e3e3;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .box-header {
+        border-radius: 10px;
+        background-color: #11009e;
+        align-self: stretch;
+        display: flex;
+        /* margin-bottom: -88px; */
+        flex-direction: column;
+        padding: 17px 80px;
+    }
+
+    .text-head {
+        color: #fff;
+        text-align: center;
+        align-self: center;
+        max-width: 361px;
+        font: 700 20px Inter, sans-serif;
+    }
+
+    .box-camera {
+        padding: 10px;
+    }
+
+    .video-webcam {
+
+        width: 600px;
+        height: 200px;
+        border: 1px solid #000;
+        overflow: hidden;
+        /* Menghindari tampilan yang melebihi kotak */
+    }
+
+
+    .image-logo {
+        position: absolute;
+        top: 150px;
+        right: 500px;
+        width: 100px;
+        height: 100px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .image-logo {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+            <div class="container-fluid ms-5">
+                <img class="navbar-brand" src="{{ url_for('static', filename='img/logo.png')}}" width="300px"
+                    height="75px" alt="">
+
+            </div>
+        </nav>
+    </div>
+
+    <div class="image-logo">
+        <img src="{{ url_for('static', filename='/img/camera.png')}}" alt="Logo-Kamera">
+    </div>
+
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text">
+                    <div class="box">
+                        <div class="box-header">
+                            <h2 class="text-head">Mengambil Gambar Pengguna</h2>
+                        </div>
+                        <div class="box-camera">
+                            <video id="video" width="100%" height="100%" autoplay></video>
+                            <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button id="snap-btn" class="btn btn-primary w-100">Capture Camera</button>
+                        <form action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
+                            <div class="d-flex mt-2 mb-2">
+                                <input class="form-control me-2" type="file" id="formFile" name="file">
+                                <input class="bg-primary border-0 text-light rounded" type="submit" value="Unggah Gambar">
+                            </div>
+                            <p class="text-danger fst-italic">*{{ message }}</p>
+                            
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layanan-unggulan-camera">
+        <div class="container">
+           
+        </div>
+    </div>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            var video = document.getElementById('video');
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function(err) {
+            console.error("Error accessing the camera: " + err);
+        });
+
+        document.getElementById('snap-btn').addEventListener('click', function() {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, 480, 480);
+
+            var imgData = canvas.toDataURL('image/png');
+            fetch('/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image: imgData }),
+            })
+            .then(function(response) {
+                console.log('Photo saved:', response);
+                window.location.href = '/predict'
+            })
+            .catch(function(error) {
+                console.error('Error saving photo:', error);
+            });
+            
+        });
+    </script>
+
+
+
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+</body>
+
+</html>

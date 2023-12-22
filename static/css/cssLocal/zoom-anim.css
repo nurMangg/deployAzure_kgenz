@@ -1,0 +1,15 @@
+.img-hover-zoom--slowmo img {
+    transform-origin: 5% 10%;
+    transition: transform 1s, filter 1s ease-in-out;
+    filter: brightness(100%);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--slowmo:hover img {
+    filter: brightness(75%);
+    transform: scale(1);
+  }
+
+.img-hover-zoom--slowmo:hover .text-paragraph{
+  color: black;
+}

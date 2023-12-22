@@ -1,0 +1,29 @@
+[{
+    "tingkat": "Tidak Stress",
+    "deskripsi": "Keadaan ketika seseorang tidak mengalami beban atau tekanan yang signifikan. Mereka merasa tenang, santai, dan tidak ada perasaan terbebani oleh tuntutan atau masalah tertentu.",
+    "gejala": "Tidak ada gejala stress yang signifikan, keseimbangan emosional dan mental baik.",
+    "cara_atasi": "Tidak ada"
+  },
+  {
+    "tingkat": "Tingkat Stress Rendah",
+    "deskripsi": "Tingkat stress di mana seseorang mungkin mengalami sedikit tekanan atau beban, tetapi masih bisa mengatasi dengan cukup baik.",
+    "gejala": "Sedikit kegelisahan atau ketegangan, namun tidak mengganggu aktivitas sehari-hari secara signifikan.",
+    "cara_atasi": "Manajemen Waktu, Relaksasi, Olahraga"
+
+  },
+  {
+    "tingkat": "Tingkat Stress Sedang",
+    "deskripsi": "Tingkat stress di mana seseorang merasa lebih tertekan dan terbebani.",
+    "gejala": "Perasaan cemas yang lebih kuat, kesulitan berkonsentrasi, perubahan mood yang signifikan, dan mungkin ada penurunan performa dalam pekerjaan atau aktivitas sehari-hari.",
+    "cara_atasi": "Pengelolaan Stress, Manajemen Tugas, Dukungan Sosial"
+
+  },
+  {
+    "tingkat": "Tingkat Stress Tinggi",
+    "deskripsi": "Tingkat stress yang sangat membebani dan bisa sangat mengganggu kehidupan sehari-hari.",
+    "gejala": "Insomnia atau gangguan tidur, gejala fisik seperti sakit kepala atau gangguan pencernaan, perasaan putus asa, kelelahan yang konstan, serta menurunnya kemampuan untuk berfungsi secara optimal dalam aktivitas sehari-hari.",
+    "cara_atasi": "Konseling Atau Terapi, Pengelolaan Kesehatan, Relakasi Mendalam"
+
+  }
+
+]

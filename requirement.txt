@@ -1,0 +1,15 @@
+flask
+pillow
+tensorflow
+flask_sqlalchemy
+sqlalchemy
+keras
+keras-metrics
+opencv-python
+numpy
+scikit_image
+nltk
+flask_bcrypt
+flask_session
+google-api-python-client
+scikit-learn

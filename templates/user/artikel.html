@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        font-family: 'poppins';
+    }
+
+    .size-beranda {
+        font-size: larger;
+        font-family: poppins;
+        color: #11009E;
+        font-weight: bold;
+    }
+
+    .call-to-action {
+        
+    }
+
+    .row {
+        padding-top: 70px;
+    }
+
+    .text {
+        /* display: flex; */
+        align-items: center;
+        margin: auto;
+        top: 50%;
+        display: table-cell;
+        /* justify-content: center; */
+        /* text-align: center; */
+    }
+
+    .layanan-unggulan {
+        
+        background-color: #11009E;
+        color: white;
+    }
+</style>
+
+<body>
+    {% include "user/layouts/navbar.html" %}
+
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row g-2">
+                {% for x in range(0, 5) %}
+                <div class="col-md-12" data-aos="fade-up">
+                    <div class="content-artikel">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="{{ artikel[x]["snippet"]["thumbnails"]["medium"]["url"] }}"  class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <a href="https://www.youtube.com/watch?v={{ artikel[x]["id"]["videoId"] }}" class="text-decoration-none">
+                                            <h5 class="card-title">{{ artikel[x]["snippet"]["title"] }}</h5>
+                                        </a>
+                                        <p class="card-text">{{ artikel[x]["snippet"]["description"] }}
+                                        </p>
+                                        <p class="card-text"><small class="text-body-secondary">{{ artikel[x]["snippet"]["publishTime"] }}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>

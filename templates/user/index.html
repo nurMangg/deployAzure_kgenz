@@ -1,0 +1,65 @@
+{% extends "user/layouts/main.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content1 %}
+
+
+{% include "user/layouts/flash_message.html" %}
+
+
+<div class="containerLogin d-flex justify-content-center">
+    <div class="container">
+        <div class="image">
+            <img class="mt-5 img" src="{{ url_for('static', filename='img/logo.png')}}" alt="" width="427px" height="139px">
+        </div>
+        <div class="paragraf">
+            <p style="margin-bottom: -3px; font-family: 'Poppins', sans-serif;">Dengan cinta dan dukungan, kita bisa
+                memastikan bahwa setiap orang memiliki akses ke layanan kesehatan mental yang mereka butuhkan.</p>
+            <p class="mb-5" style="font-family: 'Poppins', sans-serif;">"Jangan Biarkan Diri Anda Sendirian.
+                Bersama, Kita Peduli"</p>
+        </div>
+        <div class="form">
+            <form action='{{ url_for('index') }}' method="POST">
+                <div class="form-floating mb-3 w-100 display-tengah">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Email" required
+                        name="email" aria-label="Email">
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div class="form-floating mb-3 w-100 display-tengah">
+                    <input type="password" class="form-control" id="floatingInput" placeholder="Password" required
+                        name="password" aria-label="Password">
+                    <label for="floatingInput">Password</label>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6" style="margin-bottom: 20px;">
+                        <div class="form-text">Don't have an account?
+                            <a href="{{url_for('register')}}" class="text-decoration-none" style="color: #11009E;">Sign Up</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn" style="background-color: #11009E; color: white;" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content1 %}
+
+
+
+{% block content2 %}
+<div class="d-flex justify-content-center">
+    <footer class="" style="bottom: 0; position: fixed;">
+        <p class="text-center">Copyright &copy; 2023 Capstone Project</p>
+    </footer>
+</div>
+{% endblock content2 %}

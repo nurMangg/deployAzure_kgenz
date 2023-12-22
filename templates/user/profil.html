@@ -1,0 +1,65 @@
+{% extends "user/layouts/main.html" %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+{% include "user/layouts/navbar.html" %}
+
+{% block content1 %}
+{% include "user/layouts/flash_message.html" %}
+<div class="container" data-aos='fade-up'>
+    <h4 class="text-center mt-5">Informasi Pengguna</h4>
+    <div class="row g-2">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <img src="{{ url_for('static', filename='img/person.png')}}" class="rounded-circle p-2" width="250px"
+                    height="250px" alt="">
+            </div>
+        </div>
+        <form action="{{ url_for('profil')}}" method="post">
+
+            <div class="col-md-12">
+                <label for="nama-lengkap" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" name="fullname" id="nama-lengkap" value="{{ user.fullname}}">
+            </div>
+            <div class="col-md-12">
+                <label for="nama-lengkap" class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" name="email" value="{{user.email}}" readonly>
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-success" type="submit">Simpan</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="mt-5 mb-5">
+            <form action="{{ url_for('profil_password')}}" method="post">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Ubah Kata Sandi</h4>
+                        <div class="form-floating mb-2">
+                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Masukkan Kata Sandi Lama</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="password" name="password_new" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Masukkan Kata Sandi Baru</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="password" name="password_confirm" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Ulangi Masukkan Kata Sandi Baru</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <button class="btn btn-success" type="submit">Ubah Password</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content1 %}
