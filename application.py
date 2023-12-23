@@ -27,14 +27,6 @@ from tensorflow.keras.models import load_model
 from keras_metrics import f1_score
 from keras.preprocessing import image
 
-
-#Model
-from model import preprocess_img, predict_result, facecrop
-from model_chatbot import chatbot_response
-
-#Sentiment Analysis
-from sentiment import predict_sentiment
-
 # Database
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
